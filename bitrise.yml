@@ -1,33 +1,645 @@
 ---
 format_version: '11'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
-project_type: android
+project_type: ios
+
+pipelines:
+  benchmark:
+    stages:
+    - benchmark: {}
+
+stages:
+  benchmark:
+    workflows:
+    - gen1_standard_osx-xcode-11.7.x: {}
+    - gen1_standard_osx-xcode-12.0.x: {}
+    - gen1_standard_osx-xcode-12.1.x: {}
+    - gen1_standard_osx-xcode-12.2.x: {}
+    - gen1_standard_osx-xcode-12.3.x: {}
+    - gen1_standard_osx-xcode-12.4.x: {}
+    - gen1_standard_osx-xcode-12.5.x: {}
+    - gen1_standard_osx-xcode-13.0.x: {}
+    - gen1_standard_osx-xcode-13.1.x: {}
+    - gen1_standard_osx-xcode-13.2.x: {}
+    - gen1_standard_osx-xcode-13.3.x: {}
+    - gen1_standard_osx-xcode-13.4.x: {}
+    - gen1_standard_osx-xcode-14.0.x: {}
+    - gen1_elite_osx-xcode-11.7.x: {}
+    - gen1_elite_osx-xcode-12.0.x: {}
+    - gen1_elite_osx-xcode-12.1.x: {}
+    - gen1_elite_osx-xcode-12.2.x: {}
+    - gen1_elite_osx-xcode-12.3.x: {}
+    - gen1_elite_osx-xcode-12.4.x: {}
+    - gen1_elite_osx-xcode-12.5.x: {}
+    - gen1_elite_osx-xcode-13.0.x: {}
+    - gen1_elite_osx-xcode-13.1.x: {}
+    - gen1_elite_osx-xcode-13.2.x: {}
+    - gen1_elite_osx-xcode-13.3.x: {}
+    - gen1_elite_osx-xcode-13.4.x: {}
+    - gen1_elite_osx-xcode-14.0.x: {}
+    - gen2_standard_osx-xcode-11.7.x: {}
+    - gen2_standard_osx-xcode-12.0.x: {}
+    - gen2_standard_osx-xcode-12.1.x: {}
+    - gen2_standard_osx-xcode-12.2.x: {}
+    - gen2_standard_osx-xcode-12.3.x: {}
+    - gen2_standard_osx-xcode-12.4.x: {}
+    - gen2_standard_osx-xcode-12.5.x: {}
+    - gen2_standard_osx-xcode-13.0.x: {}
+    - gen2_standard_osx-xcode-13.1.x: {}
+    - gen2_standard_osx-xcode-13.2.x: {}
+    - gen2_standard_osx-xcode-13.3.x: {}
+    - gen2_standard_osx-xcode-13.4.x: {}
+    - gen2_standard_osx-xcode-14.0.x: {}
+    - gen2_elite_osx-xcode-11.7.x: {}
+    - gen2_elite_osx-xcode-12.0.x: {}
+    - gen2_elite_osx-xcode-12.1.x: {}
+    - gen2_elite_osx-xcode-12.2.x: {}
+    - gen2_elite_osx-xcode-12.3.x: {}
+    - gen2_elite_osx-xcode-12.4.x: {}
+    - gen2_elite_osx-xcode-12.5.x: {}
+    - gen2_elite_osx-xcode-13.0.x: {}
+    - gen2_elite_osx-xcode-13.1.x: {}
+    - gen2_elite_osx-xcode-13.2.x: {}
+    - gen2_elite_osx-xcode-13.3.x: {}
+    - gen2_elite_osx-xcode-13.4.x: {}
+    - gen2_elite_osx-xcode-14.0.x: {}
+    - gen2_elitexl_osx-xcode-11.7.x: {}
+    - gen2_elitexl_osx-xcode-12.0.x: {}
+    - gen2_elitexl_osx-xcode-12.1.x: {}
+    - gen2_elitexl_osx-xcode-12.2.x: {}
+    - gen2_elitexl_osx-xcode-12.3.x: {}
+    - gen2_elitexl_osx-xcode-12.4.x: {}
+    - gen2_elitexl_osx-xcode-12.5.x: {}
+    - gen2_elitexl_osx-xcode-13.0.x: {}
+    - gen2_elitexl_osx-xcode-13.1.x: {}
+    - gen2_elitexl_osx-xcode-13.2.x: {}
+    - gen2_elitexl_osx-xcode-13.3.x: {}
+    - gen2_elitexl_osx-xcode-13.4.x: {}
+    - gen2_elitexl_osx-xcode-14.0.x: {}
+    - m1_elitexl_osx-xcode-13.0.x: {}
+    - m1_elitexl_osx-xcode-13.1.x: {}
+    - m1_elitexl_osx-xcode-13.2.x: {}
+    - m1_elitexl_osx-xcode-13.3.x: {}
+    - m1_elitexl_osx-xcode-13.4.x: {}
+    - m1_elitexl_osx-xcode-14.0.x: {}
+    
 workflows:
-  benchmark_xcode_check:
+  xcode_check:
     steps:
-    - activate-ssh-key@4: {}
-    - git-clone@6:
+    - script@1:
         inputs:
-        - update_submodules: 'no'
-    - git::https://github.com/bitrise-silver/steps-dynamic-workflow.git@main:
-        inputs:
-        - template_file: benchmark/xcode/bitrise.tmpl
-        - value_file: benchmark/xcode/values.yml
-        - repository_url: git@github.com:bitrise-silver/Bitrise-iOS-Sample.git
-        - access_token: $BITRISE_TOKEN
-        - pipeline_id: benchmark
-meta:
-  bitrise.io:
-    stack: linux-docker-android-20.04
-    machine_type_id: elite-xl
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\nsw_vers\nxcodebuild -version\n\ncurl https://xcodereleases.com/
+            > data.txt\n\ncat data.txt | grep -E '<td class=\"name\">' | awk '/>/{print
+            $3}' | awk -F'<' '{print $1}' > versions.txt\n\ncp data.txt data2.txt\n\nsed
+            -i '' \"s/>/> /g\" data2.txt\n\ncat data2.txt | grep -E '<td class=\"release\">'
+            | awk '/>/{print $3}' | awk -F'<' '{print $1}' > release.txt\n\ncat data2.txt
+            | grep -E '<td class=\"build\">' | awk '/>/{print $3}' | awk -F'<' '{print
+            $1}' > builds.txt\n\npaste versions.txt release.txt builds.txt > xcode_builds.txt\n\nsed
+            $'s/\\t/ /g' xcode_builds.txt\n\nXCODE_VERSION=$(xcodebuild -version |
+            grep \"Xcode\" | awk '/ /{print $2}')\nXCODE_BUILD=$(xcodebuild -version
+            | grep \"Build version\" | awk '/ /{print $3}')\n\necho \"XCODE_VERSION=$XCODE_VERSION\"\necho
+            \"XCODE_BUILD=$XCODE_BUILD\"\n\nIS_LATEST_RELEASE=$(cat xcode_builds.txt
+            | grep -F \"$XCODE_VERSION\" | awk \"/$XCODE_BUILD/{ print NR; exit }\")\n\necho
+            \"IS_LATEST_RELEASE=$IS_LATEST_RELEASE\"\n\nLATEST_XCODE=$(cat xcode_builds.txt
+            | grep -F \"$XCODE_VERSION\" | head -n 1)\n\necho \"LATEST_XCODE=$LATEST_XCODE\"\n\nLATEST_BUILD_VERSION=$(cat
+            xcode_builds.txt | grep -F \"$XCODE_VERSION\" | head -n 1 | awk -F'\\t'
+            '{print $3}')\n\necho \"LATEST_BUILD_VERSION=$LATEST_BUILD_VERSION\" \n\nif
+            [ \"$IS_LATEST_RELEASE\" = \"1\" ]\n    then\n        echo \"Running Latest
+            Release\"\n    else\n        echo \"New Release Detected\"\n        CURRENT_VERSION=\"$XCODE_VERSION
+            $XCODE_BUILD\"\nfi\n\nif [ \"$LATEST_BUILD_VERSION\" != \"12A7605b\" ]\n
+            \   then\n\tif [ \"$LATEST_BUILD_VERSION\" = \"$XCODE_BUILD\" ]\n\t    then\n\t
+            \       echo \"Running Latest Release - do nothing\"\n\t    else\n\t        echo
+            \"New Release Detected - sending slack\"\n\t        curl -X POST -H 'Content-type:
+            application/json' --data \"{\\\"text\\\":\\\"Detected out of date XCode
+            Stack: \\nWorkflow: $BITRISE_TRIGGERED_WORKFLOW_TITLE\\nCurrent: $CURRENT_VERSION\\nLatest:
+            $LATEST_XCODE\\\"}\" https://hooks.slack.com/services/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\n\tfi\n
+            \   else\n        echo \"Skipping 12.1.1 RC\"\nfi"
+  gen1_standard_osx-xcode-11.7.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-11.7.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.0.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.1.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.2.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.3.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.4.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-12.5.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.5.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: standard
+  gen1_standard_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: standard
+  gen1_elite_osx-xcode-11.7.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-11.7.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.0.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.1.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.2.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.3.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.4.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-12.5.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.5.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: elite
+  gen1_elite_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: elite
+  gen2_standard_osx-xcode-11.7.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-11.7.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.0.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.1.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.2.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.3.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.4.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-12.5.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.5.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: g2.4core
+  gen2_standard_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: g2.4core
+  gen2_elite_osx-xcode-11.7.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-11.7.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.0.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.1.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.2.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.3.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.4.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-12.5.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.5.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: g2.8core
+  gen2_elite_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: g2.8core
+  gen2_elitexl_osx-xcode-11.7.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-11.7.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.0.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.1.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.2.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.3.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.4.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-12.5.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-12.5.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: g2.12core
+  gen2_elitexl_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: g2.12core
+  m1_elitexl_osx-xcode-13.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.0.x
+        machine_type_id: g2-m1.8core
+  m1_elitexl_osx-xcode-13.1.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.1.x
+        machine_type_id: g2-m1.8core
+  m1_elitexl_osx-xcode-13.2.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.2.x
+        machine_type_id: g2-m1.8core
+  m1_elitexl_osx-xcode-13.3.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+        machine_type_id: g2-m1.8core
+  m1_elitexl_osx-xcode-13.4.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.4.x
+        machine_type_id: g2-m1.8core
+  m1_elitexl_osx-xcode-14.0.x:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.0.x
+        machine_type_id: g2-m1.8core
+  
 app:
   envs:
   - opts:
       is_expand: false
-    PROJECT_LOCATION: "."
+    BITRISE_PROJECT_PATH: Notes.xcworkspace
   - opts:
       is_expand: false
-    MODULE: app
+    BITRISE_SCHEME: Notes
   - opts:
       is_expand: false
-    VARIANT: Debug
+    BITRISE_EXPORT_METHOD: development
+  - opts:
+      is_expand: false
+    BUILD_SLUG: xxx
+  - opts:
+      is_expand: false
+    SIMS: '1'
+  - opts:
+      is_expand: false
+    FASTLANE_MATCH_REPO_URL: https://myrepo.github.com
+  - opts:
+      is_expand: false
+    BUNDLE_ID: com.bitrise.sample.test
+  - opts:
+      is_expand: false
+    TIME_ZONE: America/Los_Angeles
+meta:
+  bitrise.io:
+    machine_type_id: g2.4core
+    stack: osx-xcode-12.4.x
