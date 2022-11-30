@@ -1,0 +1,99 @@
+---
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+
+pipelines:
+  benchmark:
+    stages:
+    - benchmark: {}
+
+stages:
+  benchmark:
+    workflows:
+    {{ range $i, $v := (ds "values").variations -}}
+    {{ range $j, $target := (ds "values").target -}}
+    {{ if eq $target.name $v.target -}}
+    {{ range $k, $stack := $target.stacks -}}
+    - {{ print $v.code "_" $stack }}: {}
+    {{ end -}}
+    {{ end -}}
+    {{ end -}}
+    {{ end }}
+workflows:
+  xcode_check:
+    steps:
+    - script@1:
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\nsw_vers\nxcodebuild -version\n\ncurl https://xcodereleases.com/
+            > data.txt\n\ncat data.txt | grep -E '<td class=\"name\">' | awk '/>/{print
+            $3}' | awk -F'<' '{print $1}' > versions.txt\n\ncp data.txt data2.txt\n\nsed
+            -i '' \"s/>/> /g\" data2.txt\n\ncat data2.txt | grep -E '<td class=\"release\">'
+            | awk '/>/{print $3}' | awk -F'<' '{print $1}' > release.txt\n\ncat data2.txt
+            | grep -E '<td class=\"build\">' | awk '/>/{print $3}' | awk -F'<' '{print
+            $1}' > builds.txt\n\npaste versions.txt release.txt builds.txt > xcode_builds.txt\n\nsed
+            $'s/\\t/ /g' xcode_builds.txt\n\nXCODE_VERSION=$(xcodebuild -version |
+            grep \"Xcode\" | awk '/ /{print $2}')\nXCODE_BUILD=$(xcodebuild -version
+            | grep \"Build version\" | awk '/ /{print $3}')\n\necho \"XCODE_VERSION=$XCODE_VERSION\"\necho
+            \"XCODE_BUILD=$XCODE_BUILD\"\n\nIS_LATEST_RELEASE=$(cat xcode_builds.txt
+            | grep -F \"$XCODE_VERSION\" | awk \"/$XCODE_BUILD/{ print NR; exit }\")\n\necho
+            \"IS_LATEST_RELEASE=$IS_LATEST_RELEASE\"\n\nLATEST_XCODE=$(cat xcode_builds.txt
+            | grep -F \"$XCODE_VERSION\" | head -n 1)\n\necho \"LATEST_XCODE=$LATEST_XCODE\"\n\nLATEST_BUILD_VERSION=$(cat
+            xcode_builds.txt | grep -F \"$XCODE_VERSION\" | head -n 1 | awk -F'\\t'
+            '{print $3}')\n\necho \"LATEST_BUILD_VERSION=$LATEST_BUILD_VERSION\" \n\nif
+            [ \"$IS_LATEST_RELEASE\" = \"1\" ]\n    then\n        echo \"Running Latest
+            Release\"\n    else\n        echo \"New Release Detected\"\n        CURRENT_VERSION=\"$XCODE_VERSION
+            $XCODE_BUILD\"\nfi\n\nif [ \"$LATEST_BUILD_VERSION\" != \"12A7605b\" ]\n
+            \   then\n\tif [ \"$LATEST_BUILD_VERSION\" = \"$XCODE_BUILD\" ]\n\t    then\n\t
+            \       echo \"Running Latest Release - do nothing\"\n\t    else\n\t        echo
+            \"New Release Detected - sending slack\"\n\t        curl -X POST -H 'Content-type:
+            application/json' --data \"{\\\"text\\\":\\\"Detected out of date XCode
+            Stack: \\nWorkflow: $BITRISE_TRIGGERED_WORKFLOW_TITLE\\nCurrent: $CURRENT_VERSION\\nLatest:
+            $LATEST_XCODE\\\"}\" https://hooks.slack.com/services/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\n\tfi\n
+            \   else\n        echo \"Skipping 12.1.1 RC\"\nfi"
+  {{ range $i, $v := (ds "values").variations -}}
+  {{ range $j, $target := (ds "values").target -}}
+  {{ if eq $target.name $v.target -}}
+  {{ range $k, $stack := $target.stacks -}}
+  {{ print $v.code "_" $stack }}:
+    before_run:
+    - xcode_check
+    meta:
+      bitrise.io:
+        stack: {{$stack}}
+        machine_type_id: {{$v.machine_type_id}}
+  {{ end -}}
+  {{ end -}}
+  {{ end -}}
+  {{ end }}
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: Notes.xcworkspace
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: Notes
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: development
+  - opts:
+      is_expand: false
+    BUILD_SLUG: xxx
+  - opts:
+      is_expand: false
+    SIMS: '1'
+  - opts:
+      is_expand: false
+    FASTLANE_MATCH_REPO_URL: https://myrepo.github.com
+  - opts:
+      is_expand: false
+    BUNDLE_ID: com.bitrise.sample.test
+  - opts:
+      is_expand: false
+    TIME_ZONE: America/Los_Angeles
+meta:
+  bitrise.io:
+    machine_type_id: g2.4core
+    stack: osx-xcode-12.4.x

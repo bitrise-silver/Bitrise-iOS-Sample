@@ -1,0 +1,51 @@
+target:
+- full:
+  name: full
+  stacks:
+  - osx-xcode-11.7.x
+  - osx-xcode-12.0.x
+  - osx-xcode-12.1.x
+  - osx-xcode-12.2.x
+  - osx-xcode-12.3.x
+  - osx-xcode-12.4.x
+  - osx-xcode-12.5.x
+  - osx-xcode-13.0.x
+  - osx-xcode-13.1.x
+  - osx-xcode-13.2.x
+  - osx-xcode-13.3.x
+  - osx-xcode-13.4.x
+  - osx-xcode-14.0.x
+- m1:
+  name: m1
+  stacks:
+  - osx-xcode-13.0.x
+  - osx-xcode-13.1.x
+  - osx-xcode-13.2.x
+  - osx-xcode-13.3.x
+  - osx-xcode-13.4.x
+  - osx-xcode-14.0.x
+variations:
+- gen1_standard:
+  code: gen1_standard
+  machine_type_id: standard
+  target: full
+- gen1_elite:
+  code: gen1_elite
+  machine_type_id: elite
+  target: full
+- gen2_standard:
+  code: gen2_standard
+  machine_type_id: g2.4core
+  target: full
+- gen2_elite:
+  code: gen2_elite
+  machine_type_id: g2.8core
+  target: full
+- gen2_elitexl:
+  code: gen2_elitexl
+  machine_type_id: g2.12core
+  target: full
+- m1_elitexl:
+  code: m1_elitexl
+  machine_type_id: g2-m1.8core
+  target: m1
