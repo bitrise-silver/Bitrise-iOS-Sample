@@ -13,6 +13,13 @@
 		A1F9B10E25C380F400E21DE4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F9B10D25C380F400E21DE4 /* Preview Assets.xcassets */; };
 		A1F9B11925C380F500E21DE4 /* BitriseTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B11825C380F500E21DE4 /* BitriseTestTests.swift */; };
 		A1F9B12425C380F500E21DE4 /* BitriseTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B12325C380F500E21DE4 /* BitriseTestUITests.swift */; };
+		BE6C9AF929CE2C3800A3B02C /* BitriseTestWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9AF829CE2C3800A3B02C /* BitriseTestWatchApp.swift */; };
+		BE6C9AFB29CE2C3800A3B02C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9AFA29CE2C3800A3B02C /* ContentView.swift */; };
+		BE6C9AFD29CE2C3900A3B02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6C9AFC29CE2C3900A3B02C /* Assets.xcassets */; };
+		BE6C9B0029CE2C3900A3B02C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6C9AFF29CE2C3900A3B02C /* Preview Assets.xcassets */; };
+		BE6C9B0A29CE2C3900A3B02C /* BitriseTestWatch_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9B0929CE2C3900A3B02C /* BitriseTestWatch_Watch_AppTests.swift */; };
+		BE6C9B1429CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9B1329CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITests.swift */; };
+		BE6C9B1629CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9B1529CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +37,20 @@
 			remoteGlobalIDString = A1F9B10225C380F200E21DE4;
 			remoteInfo = BitriseTest;
 		};
+		BE6C9B0629CE2C3900A3B02C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F9B0FB25C380F200E21DE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE6C9AF529CE2C3800A3B02C;
+			remoteInfo = "BitriseTestWatch Watch App";
+		};
+		BE6C9B1029CE2C3900A3B02C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F9B0FB25C380F200E21DE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE6C9AF529CE2C3800A3B02C;
+			remoteInfo = "BitriseTestWatch Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +66,16 @@
 		A1F9B11F25C380F500E21DE4 /* BitriseTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitriseTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F9B12325C380F500E21DE4 /* BitriseTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseTestUITests.swift; sourceTree = "<group>"; };
 		A1F9B12525C380F500E21DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE6C9AF629CE2C3800A3B02C /* BitriseTestWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BitriseTestWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6C9AF829CE2C3800A3B02C /* BitriseTestWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseTestWatchApp.swift; sourceTree = "<group>"; };
+		BE6C9AFA29CE2C3800A3B02C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE6C9AFC29CE2C3900A3B02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE6C9AFF29CE2C3900A3B02C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE6C9B0529CE2C3900A3B02C /* BitriseTestWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BitriseTestWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6C9B0929CE2C3900A3B02C /* BitriseTestWatch_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseTestWatch_Watch_AppTests.swift; sourceTree = "<group>"; };
+		BE6C9B0F29CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BitriseTestWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6C9B1329CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseTestWatch_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		BE6C9B1529CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseTestWatch_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +100,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE6C9AF329CE2C3800A3B02C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0229CE2C3900A3B02C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0C29CE2C3900A3B02C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +130,9 @@
 				A1F9B10525C380F200E21DE4 /* BitriseTest */,
 				A1F9B11725C380F500E21DE4 /* BitriseTestTests */,
 				A1F9B12225C380F500E21DE4 /* BitriseTestUITests */,
+				BE6C9AF729CE2C3800A3B02C /* BitriseTestWatch Watch App */,
+				BE6C9B0829CE2C3900A3B02C /* BitriseTestWatch Watch AppTests */,
+				BE6C9B1229CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests */,
 				A1F9B10425C380F200E21DE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +143,9 @@
 				A1F9B10325C380F200E21DE4 /* BitriseTest.app */,
 				A1F9B11425C380F500E21DE4 /* BitriseTestTests.xctest */,
 				A1F9B11F25C380F500E21DE4 /* BitriseTestUITests.xctest */,
+				BE6C9AF629CE2C3800A3B02C /* BitriseTestWatch Watch App.app */,
+				BE6C9B0529CE2C3900A3B02C /* BitriseTestWatch Watch AppTests.xctest */,
+				BE6C9B0F29CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +186,42 @@
 				A1F9B12525C380F500E21DE4 /* Info.plist */,
 			);
 			path = BitriseTestUITests;
+			sourceTree = "<group>";
+		};
+		BE6C9AF729CE2C3800A3B02C /* BitriseTestWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9AF829CE2C3800A3B02C /* BitriseTestWatchApp.swift */,
+				BE6C9AFA29CE2C3800A3B02C /* ContentView.swift */,
+				BE6C9AFC29CE2C3900A3B02C /* Assets.xcassets */,
+				BE6C9AFE29CE2C3900A3B02C /* Preview Content */,
+			);
+			path = "BitriseTestWatch Watch App";
+			sourceTree = "<group>";
+		};
+		BE6C9AFE29CE2C3900A3B02C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9AFF29CE2C3900A3B02C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE6C9B0829CE2C3900A3B02C /* BitriseTestWatch Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9B0929CE2C3900A3B02C /* BitriseTestWatch_Watch_AppTests.swift */,
+			);
+			path = "BitriseTestWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		BE6C9B1229CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9B1329CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITests.swift */,
+				BE6C9B1529CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "BitriseTestWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,13 +280,66 @@
 			productReference = A1F9B11F25C380F500E21DE4 /* BitriseTestUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		BE6C9AF529CE2C3800A3B02C /* BitriseTestWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE6C9B1D29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch App" */;
+			buildPhases = (
+				BE6C9AF229CE2C3800A3B02C /* Sources */,
+				BE6C9AF329CE2C3800A3B02C /* Frameworks */,
+				BE6C9AF429CE2C3800A3B02C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BitriseTestWatch Watch App";
+			productName = "BitriseTestWatch Watch App";
+			productReference = BE6C9AF629CE2C3800A3B02C /* BitriseTestWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE6C9B0429CE2C3900A3B02C /* BitriseTestWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE6C9B1E29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch AppTests" */;
+			buildPhases = (
+				BE6C9B0129CE2C3900A3B02C /* Sources */,
+				BE6C9B0229CE2C3900A3B02C /* Frameworks */,
+				BE6C9B0329CE2C3900A3B02C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE6C9B0729CE2C3900A3B02C /* PBXTargetDependency */,
+			);
+			name = "BitriseTestWatch Watch AppTests";
+			productName = "BitriseTestWatch Watch AppTests";
+			productReference = BE6C9B0529CE2C3900A3B02C /* BitriseTestWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE6C9B0E29CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE6C9B1F29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch AppUITests" */;
+			buildPhases = (
+				BE6C9B0B29CE2C3900A3B02C /* Sources */,
+				BE6C9B0C29CE2C3900A3B02C /* Frameworks */,
+				BE6C9B0D29CE2C3900A3B02C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE6C9B1129CE2C3900A3B02C /* PBXTargetDependency */,
+			);
+			name = "BitriseTestWatch Watch AppUITests";
+			productName = "BitriseTestWatch Watch AppUITests";
+			productReference = BE6C9B0F29CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A1F9B0FB25C380F200E21DE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					A1F9B10225C380F200E21DE4 = {
@@ -205,6 +352,17 @@
 					A1F9B11E25C380F500E21DE4 = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = A1F9B10225C380F200E21DE4;
+					};
+					BE6C9AF529CE2C3800A3B02C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					BE6C9B0429CE2C3900A3B02C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BE6C9AF529CE2C3800A3B02C;
+					};
+					BE6C9B0E29CE2C3900A3B02C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BE6C9AF529CE2C3800A3B02C;
 					};
 				};
 			};
@@ -224,6 +382,9 @@
 				A1F9B10225C380F200E21DE4 /* BitriseTest */,
 				A1F9B11325C380F500E21DE4 /* BitriseTestTests */,
 				A1F9B11E25C380F500E21DE4 /* BitriseTestUITests */,
+				BE6C9AF529CE2C3800A3B02C /* BitriseTestWatch Watch App */,
+				BE6C9B0429CE2C3900A3B02C /* BitriseTestWatch Watch AppTests */,
+				BE6C9B0E29CE2C3900A3B02C /* BitriseTestWatch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +407,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1F9B11D25C380F500E21DE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9AF429CE2C3800A3B02C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6C9B0029CE2C3900A3B02C /* Preview Assets.xcassets in Resources */,
+				BE6C9AFD29CE2C3900A3B02C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0329CE2C3900A3B02C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0D29CE2C3900A3B02C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +464,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE6C9AF229CE2C3800A3B02C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6C9AFB29CE2C3800A3B02C /* ContentView.swift in Sources */,
+				BE6C9AF929CE2C3800A3B02C /* BitriseTestWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0129CE2C3900A3B02C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6C9B0A29CE2C3900A3B02C /* BitriseTestWatch_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6C9B0B29CE2C3900A3B02C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6C9B1429CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITests.swift in Sources */,
+				BE6C9B1629CE2C3900A3B02C /* BitriseTestWatch_Watch_AppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,6 +502,16 @@
 			isa = PBXTargetDependency;
 			target = A1F9B10225C380F200E21DE4 /* BitriseTest */;
 			targetProxy = A1F9B12025C380F500E21DE4 /* PBXContainerItemProxy */;
+		};
+		BE6C9B0729CE2C3900A3B02C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE6C9AF529CE2C3800A3B02C /* BitriseTestWatch Watch App */;
+			targetProxy = BE6C9B0629CE2C3900A3B02C /* PBXContainerItemProxy */;
+		};
+		BE6C9B1129CE2C3900A3B02C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE6C9AF529CE2C3800A3B02C /* BitriseTestWatch Watch App */;
+			targetProxy = BE6C9B1029CE2C3900A3B02C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,6 +770,154 @@
 			};
 			name = Release;
 		};
+		BE6C9B1729CE2C3900A3B02C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BitriseTestWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BitriseTestWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		BE6C9B1829CE2C3900A3B02C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BitriseTestWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BitriseTestWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		BE6C9B1929CE2C3900A3B02C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bitrise.BitriseTestWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitriseTestWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitriseTestWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		BE6C9B1A29CE2C3900A3B02C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bitrise.BitriseTestWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitriseTestWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitriseTestWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		BE6C9B1B29CE2C3900A3B02C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bitrise.BitriseTestWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "BitriseTestWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		BE6C9B1C29CE2C3900A3B02C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G37LRNGKRT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bitrise.BitriseTestWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "BitriseTestWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +953,33 @@
 			buildConfigurations = (
 				A1F9B12F25C380F500E21DE4 /* Debug */,
 				A1F9B13025C380F500E21DE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE6C9B1D29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE6C9B1729CE2C3900A3B02C /* Debug */,
+				BE6C9B1829CE2C3900A3B02C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE6C9B1E29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE6C9B1929CE2C3900A3B02C /* Debug */,
+				BE6C9B1A29CE2C3900A3B02C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE6C9B1F29CE2C3900A3B02C /* Build configuration list for PBXNativeTarget "BitriseTestWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE6C9B1B29CE2C3900A3B02C /* Debug */,
+				BE6C9B1C29CE2C3900A3B02C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
